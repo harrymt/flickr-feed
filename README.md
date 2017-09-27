@@ -1,6 +1,6 @@
 # Flickr Feed
 
-- Display a flickr feed using Angular.
+Using [Angular2](https://angular.io/) and [Typescript](https://www.typescriptlang.org/) to display a simple [Flickr](https://www.flickr.com/) feed.
 
 ## Build
 
