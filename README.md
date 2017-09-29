@@ -9,7 +9,7 @@ Using [Angular2](https://angular.io/) and [Typescript](https://www.typescriptlan
 
 ## Deploy
 
-- `ng build -op docs --bh /flickr-feed/ -prod` (builds a static site to view on GitHub pages)
+- `ng build -op docs --bh /flickr-feed/ -prod` (builds a static site to view on [GitHub pages](https://www.harrymt.com/flickr-feed/))
 
 ## Code scaffolding
 
