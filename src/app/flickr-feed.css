@@ -1,0 +1,23 @@
+
+.flickr-feed h1 {
+  font-family: arial;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.card-list {
+  height: 800px;
+  overflow-y: scroll;
+  padding: 20px;
+  border: 1px solid #eee;
+}
+
+.card {
+  display: inline-flex;
+}
+
+.search-box {
+  width: 300px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
