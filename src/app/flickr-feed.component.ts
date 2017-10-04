@@ -3,32 +3,29 @@ import { FeedService } from './feed.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable'
 
+
 @Component({
   selector: 'flickr-feed',
   template: `
     <div class='flickr-feed'>
       <h2>Flickr Public Feed</h2>
-      <input class="search-box" value="harry" type="text" [formControl]="tagSearch">
-      <div class='card-list'>
-        <div class='card' *ngFor="let item of items | async">
-          <div class='card-image'>
-            <img src='{{ item.media.m }}'>
-          </div>
-          <div class='card-text'>
+      <input id="search-box" class="search-box" value="harry" type="text" [formControl]="tagSearch">
+      <button class="btn btn-primary" md-button (click)="clicked($event)">Search</button>
+      <ul class='card-list list-unstyled'>
+        <li class='media flickr-card' *ngFor="let item of items | async">
+          <img class='d-flex mr-3' src='{{ item.media.m }}'>
+          <div class='card-text media-body'>
             <div class='row'>
-              <h2>{{item.title}}</h2>
+              <h5 class='mt-0 mb-1'>{{item.title}}</h5>
             </div>
             <div class='row'>
-              <a href='{{ item.author_id }}'>{{ item.author }}</a>
-              <span>{{ item.published }}</span>
-              <a href='{{ item.link }}'>View on Flickr</a>
-            </div>
-            <div class='row'>
-              {{ item.tags }}
+              <a class='col' href='{{ item.author_id }}'>{{ item.author }}</a>
+              <span class='col'>{{ item.published }}</span>
+              <a class='col' href='{{ item.link }}'>View on Flickr</a>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   `,
   styleUrls: ['./flickr-feed.css']
@@ -39,7 +36,9 @@ export class FlickrFeedComponent {
   items: Observable<Array<string>>;
   tagSearch = new FormControl();
 
-  constructor(private feedService: FeedService) {}
+  constructor(private feedService: FeedService) {
+
+  }
 
   ngOnInit() {
     this.items = this.tagSearch.valueChanges
@@ -48,5 +47,16 @@ export class FlickrFeedComponent {
        .switchMap(tag => {
            return this.feedService.getTagFeed(tag)
        });
+
+    // Search default tag
+    this.tagSearch.setValue('potato');
+    this.items = this.feedService.getTagFeed('potato');
+  }
+
+  clicked(event) {
+    event.preventDefault(); // Don't submit a form
+
+    // Search for the tag
+    this.items = this.feedService.getTagFeed(this.tagSearch.value);
   }
 }
