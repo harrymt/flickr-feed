@@ -4,11 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "ng serve -o --no-delete-output-path",
+    "build": "ng build -op docs --bh /flickr-feed/ -prod",
+    "test": "ng test; ng e2e; ng lint"
   },
   "private": true,
   "dependencies": {
