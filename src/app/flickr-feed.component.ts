@@ -20,7 +20,7 @@ import { Observable } from 'rxjs/Observable'
             </div>
             <div class='row'>
               <a class='col' href='{{ item.author_id }}'>{{ item.author }}</a>
-              <span class='col'>{{ item.published }}</span>
+              <span class='col'>{{ item.published | date:'medium' }}</span>
               <a class='col' href='{{ item.link }}'>View on Flickr</a>
             </div>
           </div>
