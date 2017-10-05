@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FeedService } from './feed.service';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs/Observable'
-
+import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'flickr-feed',
+  selector: 'app-flickr-feed',
   template: `
     <div class='flickr-feed'>
       <h2>Flickr Public Feed</h2>
@@ -31,26 +30,24 @@ import { Observable } from 'rxjs/Observable'
   styleUrls: ['./flickr-feed.css']
 })
 
-export class FlickrFeedComponent {
+export class FlickrFeedComponent implements OnInit {
 
   items: Observable<Array<string>>;
   tagSearch = new FormControl();
 
-  constructor(private feedService: FeedService) {
-
-  }
+  constructor(private feedService: FeedService) { }
 
   ngOnInit() {
     this.items = this.tagSearch.valueChanges
        .debounceTime(400)
        .distinctUntilChanged()
        .switchMap(tag => {
-           return this.feedService.getTagFeed(tag)
+          return this.feedService.getTagFeed(tag);
        });
 
     // Search default tag
-    this.tagSearch.setValue('potato');
-    this.items = this.feedService.getTagFeed('potato');
+    this.tagSearch.setValue('harry');
+    this.items = this.feedService.getTagFeed('harry');
   }
 
   clicked(event) {

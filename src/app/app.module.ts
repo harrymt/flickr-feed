@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { JsonpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { FlickrFeedComponent } from './flickr-feed.component'
+import { FlickrFeedComponent } from './flickr-feed.component';
 import { FeedService } from './feed.service';
 
 @NgModule({
