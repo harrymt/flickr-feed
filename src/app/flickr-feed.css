@@ -16,6 +16,13 @@
 .flickr-card img {
   margin-right: 1rem!important;
   width: 200px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .flickr-card img {
+     width: 150px; 
+  }
 }
 
 .media {
@@ -28,6 +35,12 @@
   padding: 10px;
 }
 
+@media (max-width: 768px) {
+  .card-text h5 {
+    padding: 6px;
+  }
+}
+
 .row {
   display: flex;
 }
@@ -37,6 +50,12 @@
   padding: 10px;
 }
 
+@media (max-width: 768px) {
+  .row .col {
+    padding: 0;
+  }
+}
+  
 .search-box {
   border-radius: 2px;
   border: 1px solid #ddd;
