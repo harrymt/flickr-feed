@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FeedService } from './feed.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { MaxCharsPipe } from './maxchars.pipe';
 
 @Component({
   selector: 'app-flickr-feed',
@@ -15,7 +16,7 @@ import { Observable } from 'rxjs/Observable';
           <img class='d-flex mr-3' src='{{ item.media.m }}'>
           <div class='card-text media-body'>
             <div class='row'>
-              <h5 class='mt-0 mb-1'>{{item.title}}</h5>
+              <h5 class='mt-0 mb-1'>{{item.title | maxchars:75}}</h5>
             </div>
             <div class='row'>
               <a class='col' href='{{ item.author_id }}'>{{ item.author }}</a>

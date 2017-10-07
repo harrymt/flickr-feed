@@ -5,11 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FlickrFeedComponent } from './flickr-feed.component';
 import { FeedService } from './feed.service';
+import { MaxCharsPipe } from './maxchars.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlickrFeedComponent
+    MaxCharsPipe
   ],
   imports: [
     JsonpModule,
