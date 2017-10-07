@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FeedService } from './feed.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { ExtractAuthorPipe } from './extractauthor.pipe';
 import { MaxCharsPipe } from './maxchars.pipe';
+
 
 @Component({
   selector: 'app-flickr-feed',
@@ -19,7 +21,7 @@ import { MaxCharsPipe } from './maxchars.pipe';
               <h5 class='mt-0 mb-1'>{{item.title | maxchars:75}}</h5>
             </div>
             <div class='row'>
-              <a class='col' href='{{ item.author_id }}'>{{ item.author }}</a>
+              <a class='col' href='{{ item.author_id }}'>{{ item.author | extractauthor }}</a>
               <span class='col'>{{ item.published | date:'medium' }}</span>
               <a class='col' href='{{ item.link }}'>View on Flickr</a>
             </div>
