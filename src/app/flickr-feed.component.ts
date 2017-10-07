@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonPipe } from '@angular/common';
 import { FeedService } from './feed.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
@@ -15,7 +16,10 @@ import { MaxCharsPipe } from './maxchars.pipe';
       <button class="btn btn-primary" md-button (click)="clicked($event)">Search</button>
       <ul class='card-list list-unstyled'>
         <li class='media flickr-card' *ngFor="let item of items | async">
-          <img class='d-flex mr-3' src='{{ item.media.m }}'>
+          <pre style="display: none;">{{ item | json }}</pre>
+          <div class="img-wrapper">
+            <img class='d-flex mr-3' src='{{ item.media.m }}'>
+          </div>
           <div class='card-text media-body'>
             <div class='row'>
               <h5 class='mt-0 mb-1'>{{item.title | maxchars:75}}</h5>

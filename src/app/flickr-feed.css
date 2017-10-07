@@ -19,16 +19,21 @@
   margin: auto;
 }
 
+.img-wrapper {
+  max-height: 100px;
+  overflow: hidden;
+  margin: auto;
+}
+
 @media (max-width: 768px) {
   .flickr-card img {
-     width: 150px; 
+     width: 150px;
   }
 }
 
 .media {
   border-bottom: 1px solid #eee;
-  max-height: 100px;
-  overflow: hidden;
+
 }
 
 .card-text h5 {
@@ -55,7 +60,7 @@
     padding: 0;
   }
 }
-  
+
 .search-box {
   border-radius: 2px;
   border: 1px solid #ddd;
@@ -64,4 +69,17 @@
   padding-left: 8px;
   padding-top: 4px;
   width: 300px;
+}
+
+@media (max-width: 768px) {
+  .search-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  button {
+    margin-bottom: 20px;
+    width: 100%;
+  }
 }
