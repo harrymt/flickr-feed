@@ -1,6 +1,5 @@
 # Flickr Feed
-
-Using [Angular2](https://angular.io/) and [Typescript](https://www.typescriptlang.org/) to display a simple [Flickr](https://www.flickr.com/) feed.
+Display a simple [Flickr](https://www.flickr.com/) feed using [Angular2](https://angular.io/) and [Typescript](https://www.typescriptlang.org/).
 
 ### Dependencies
 
